@@ -4,18 +4,21 @@ function mergesort(left,right,array)
   var nl=left.length ;
   var nr=right.length;
   
-  while(i<nl && j<nr)
+ while(i<nl && j<nr)
     {
       if(left[i]<=right[j])
         {
           array[k]=left[i];
           i++;
+          k++;
+          
         }
       else
-        array[k]=right[i];
+     {   array[k]=right[j];
       j++;
+      k++;}
     }
-  k++;
+  
   
   while(i<nl)
     {
@@ -23,7 +26,7 @@ function mergesort(left,right,array)
       i++;
       k++;
     }
-  while(j<nl)
+  while(j<nr)
     {
       array[k]=right[j];
       j++;
