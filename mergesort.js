@@ -58,9 +58,11 @@ function merge(array)
 {
   right[j-mid]=array[j];
 }
+  merge(left);
+  merge(right);
   
  var x = mergesort(left,right ,array );
-return  x ;  
+return   ;  
 
 }
 
