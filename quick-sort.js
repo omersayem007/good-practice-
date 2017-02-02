@@ -7,10 +7,10 @@ function partition(array,start,end)
   
   
   
-  // for(var i=pindex ; i<end-1 ;i++)
+   for(var i=pindex ; i<end-1 ;i++)
    {
     
-      if(array[i]<=array[pivot])
+      if(array[i]<=pivot)
         {
           temp=array[i];
           array[i]=array[pindex];
@@ -19,20 +19,17 @@ function partition(array,start,end)
           pindex++;
         }
       
- //  }
-  return array;
-       
-   
-  
-  /*temp=array[end];
+   }
+
+  temp=pivot;
   array[end]=array[pindex];
-  array[pindex]=pivot;
+  array[pindex]=temp;
   
-  return array;*/
+  return array;
   
 }
 
-/*function quick_sort(array,start,end)
+function quick_sort(array,start,end)
 {
   if(start<end)
     {
@@ -42,6 +39,6 @@ function partition(array,start,end)
       
     }
   return array;
-}*/
+}
 
-console.log(partition( [7,2,1,6,8,5,3,4],0,7 ) );
+console.log( partition( [7,2,1,6,8,5,3,4] ,0,7 ) );
