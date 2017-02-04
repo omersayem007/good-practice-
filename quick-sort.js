@@ -7,7 +7,7 @@ function partition(array,start,end)
   
   
   
-   for(var i=pindex ; i<end-1 ;i++)
+   for(var i=pindex ; i<end ;i++)
    {
     
       if(array[i]<=pivot)
@@ -25,7 +25,7 @@ function partition(array,start,end)
   array[end]=array[pindex];
   array[pindex]=temp;
   
-  return array;
+  return pindex ;
   
 }
 
@@ -33,12 +33,12 @@ function quick_sort(array,start,end)
 {
   if(start<end)
     {
-      var pivot =partition(array,start,end);
-      quick_sort(array,start,pivot-1);
-      quick_sort(array,pivot+1 ,end);
+      var pindex =partition(array,start,end);
+      quick_sort(array,start,pindex-1);
+      quick_sort(array,pindex+1 ,end);
       
     }
   return array;
 }
 
-console.log( partition( [7,2,1,6,8,5,3,4] ,0,7 ) );
+console.log( quick_sort( [7,2,1,6,8,5,3,4] ,0,7 ) );
