@@ -1,24 +1,30 @@
-function knapsack(w,benifit,limit)
+function knapsack(weight,benifit,limit)
 {
-  var x=[];
-  for( var i =0 ; i<w.length ;i++)
+  var arr=[] ;
+  
+  for( var i =0 ; i<weight.length ;i++)
     {
-      x[i]=0;
-     var weight=0;
-      while(weight<limit)
-        {
-          i=best();
-          if(weight+w[i]<limit)
+      arr.push(benifit[i]/weight[i]);
+    }
+  
+  var x=[];
+  var curr_weight=0;
+  
+  for( var i =0 ; i<weight.length ; i++)
+    {
+       
+       x[i]=0;
+          if(curr_weight+weight[i]<limit)
             {
               x[i]=1;
-              weight=weight+w[i];
+              curr_weight+=weight[i];
             }
           else
-            x[i]=(w-weight)/w[i];
-          weight=limit;
+          x[i]=(limit-curr_weight)/weight[i];
+          
         }
-    }
-  return x ;
+    curr_weight=limit;
+  return x  ;
   
 }
-console.log(knapsack([2,3,4,5],[3,4,5,6],5));
+console.log( knapsack([10,20,30],[60,100,120],50));
