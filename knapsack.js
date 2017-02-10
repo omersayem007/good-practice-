@@ -1,3 +1,16 @@
+function iteams(weight,taka)
+{
+  this.weight=weight ;
+  this.taka=taka;
+}
+
+var iteam=[
+  new iteams(10,60),
+  new iteams(20,100),
+  new iteams(30,120)
+  
+];
+
 function knapsack(weight,benifit,limit)
 {
   var arr=[] ;
