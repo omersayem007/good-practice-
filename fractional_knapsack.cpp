@@ -1,5 +1,7 @@
 #include<iostream>
 using namespace std;
+int top, status;
+
 
 void swap(int *x, int *y)
 {
@@ -7,35 +9,60 @@ void swap(int *x, int *y)
     *x = *y;
     *y = temp;
 }
-
-int knapsack(weight,benifit,limit)
+int pop (int stack[])
 {
+    int ret;
+    if (top == -1)
+    {   ret = 0;
+	status = 0;
+    }
+    else
+    {   status = 1;
+	ret = stack [top];
+	--top;
+    }
+return ret;
+}
 
-  var x=[];
-  var curr_weight=0;
+int knapsack(int *weight,int *index,int n,int limit)
+{
+   int top = -1;
+  int x[n];
+  int curr_weight=0;
 
-  for( var i =0 ; i<weight.length ; i++)
+  for( int i =0 ; i<n ; i++)
     {
        x[i]=0;
-          if(curr_weight+weight[i]<limit)
+
+       int  j=pop(index);
+
+                 if(curr_weight+weight[j]<limit)
             {
               x[i]=1;
-              curr_weight+=weight[i];
+              curr_weight+=weight[j];
             }
           else
-          x[i]=(limit-curr_weight)/weight[i];
+          x[i]=(limit-curr_weight)/weight[j];
 
         }
-    curr_weight=limit;
-  return x  ;
+    curr_weight=limit;*/
+
+    cout<<"boooooooom !!!:"<<endl;
+    for(int i=0 ;i<n ;i++)
+   {
+     cout<<""<<x[i];
+
+   }
+
+  return 0  ;
 
 }
 int main()
 {
-    int n,small;
+    int n,small,limit;
     cout<<"enter the size of the array"<<endl;
     cin>>n;
-    int weight[n],taka[n],index[n] , profit[n];;
+    int weight[n],taka[n],index[n] , profit[n],x[n];
 
     cout<<"Enter weight times :"<<endl;
 
@@ -49,8 +76,8 @@ int main()
         cin>>taka[i];
 
     }
-
-    cout<<endl;
+    cout<<"Enter the max weight limit :"<<endl;
+    cin>>limit ;
     for(int i=0;i<n;i++)
     {
       profit[i]=(taka[i]/weight[i]);
@@ -72,7 +99,7 @@ int main()
     {
        small = i;
         for (int j=i+1;j<n;j++)
-          if (profit[j]>profit[small])
+          if (profit[j]<profit[small])
             small=j;
         swap(&profit[small],&profit[i]);
         swap(&index[small],&index[i]);
@@ -92,6 +119,11 @@ int main()
     }
     cout<<endl;
 
-     cout<<""<<x;
+
+   knapsack(weight,index,n,limit);
+
+
+
+
     return 0;
 }
