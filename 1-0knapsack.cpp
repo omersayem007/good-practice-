@@ -24,8 +24,8 @@ int knapsack(int weight[],int taka[],int n, int limit)
         {
                 if ( taka[i]+ B[i-1,w-weight[i]] > B[i-1,w] )
                 {
-            
-                 B[i,w] = taka[i]+B[i-1,w-weight[i];
+
+                 B[i,w] = taka[i]+B[i-1,w-weight[i]];
                 }
 
 			else
