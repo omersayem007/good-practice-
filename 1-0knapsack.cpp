@@ -41,3 +41,29 @@ int knapsack(int weight[],int taka[],int n, int limit)
 
 
 }
+
+
+int main()
+{
+     int n,small,limit;
+    cout<<"enter the size of the array"<<endl;
+    cin>>n;
+    int weight[n],taka[n];
+
+    cout<<"Enter weights :"<<endl;
+
+    for(int i=0;i<n;i++)
+    {
+        cin>>weight[i];
+    }
+    cout<<"Enter taka :"<<endl;
+    for (int i=0;i<n;i++)
+    {
+        cin>>taka[i];
+
+    }
+    cout<<"Enter the max weight limit :"<<endl;
+    cin>>limit ;
+    knapsack(weight,taka,n,limit);
+
+}
